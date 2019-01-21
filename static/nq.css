@@ -1,0 +1,12 @@
+.not_answer {
+    background-color:fff;
+    vertical-align:top;
+}
+.is_answer {
+    background-color:bfd;
+    vertical-align:top;
+}
+.contains_answer {
+    background-color:fbb;
+    vertical-align:top;
+}

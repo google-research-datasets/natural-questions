@@ -1,0 +1,75 @@
+<!--
+Copyright 2018 The Google AI Language Team Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Natural Questions {{ dataset }} Set Example</title>
+</head>
+<body>
+  <!-- Style rules for our UI -->
+  <link href="static/nq.css" rel="stylesheet">
+
+  <br>
+  <table width=100%>
+    <tr>
+      <td valign=middle class=td-title>
+        <span class=section-title>Natural Questions {{ dataset }} Set Example</span>
+      </td>
+    </tr>
+  </table>
+
+  <table border=2 cellpadding=2 cellspacing=2>
+    <tr>
+      <td>URL</td>
+      <td><code>{{ example.url }}</code></td>
+    </tr>
+    <tr>
+      <td>Question</td>
+      <td>{{ example.question_text }}</td>
+    </tr>
+    <tr>
+      <td>Candidate With Answer</td>
+      <td>{{ example.candidates_with_answer }}</td>
+    </tr>
+    <tr>
+      <td>Short Answer</td>
+      <td>
+        <table>
+          {% for short_answer in example.short_answers_texts %}
+          <tr>
+            <td>{{ short_answer }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table border=2 cellpadding=2 cellspacing=2>
+    <tr>
+      <th>Index</th>
+      <th>Contains Answer</th>
+      <th>Top Level Long Answer Candidate</th>
+    </tr>
+    {% for candidate in example.candidates %}
+    <tr class={{ candidate.style }}>
+      <td>{{ candidate.index }}</td>
+      <td>{{ candidate.contains_answer }}</td>
+      <td>{{ candidate.contents }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

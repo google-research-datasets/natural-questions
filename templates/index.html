@@ -1,0 +1,53 @@
+<!--
+Copyright 2018 The Google AI Language Team Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Natural Questions</title>
+</head>
+<body>
+  <!-- Style rules for our UI -->
+  <link href="static/tgq.css" rel="stylesheet">
+
+  <br>
+  <table width=100%>
+    <tr>
+      <td valign=middle class=td-title>
+        <span class=section-title>Natural Questions {{ dataset }} Set Examples</span>
+      </td>
+    </tr>
+  </table>
+
+  <table border=2 cellpadding=2 cellspacing=2>
+    <tr>
+      <th>URL</th>
+      <th>Question</th>
+      <th>Long Answer</th>
+      <th>Short Answer</th>
+      <th>Parsed Document</th>
+    </tr>
+    {% for example in examples %}
+    <tr>
+      <td><a href="{{example.url}}">{{ example.title }}</a></td>
+      <td>{{ example.question_text }}</td>
+      <td>{{ example.long_answer_text }}</td>
+      <td>{{ example.short_answers_text }}</td>
+      <td><a href="features?example_id={{ example.example_id }}">link</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
