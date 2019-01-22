@@ -61,19 +61,18 @@ representation of the page.
 
 ```json
 "document_tokens":[
-  { "token": "<h1>", "start_byte": 12, "end_byte": 16, "html_token": True },
-  { "token": "Google", "start_byte": 16, "end_byte": 22, "html_token": False },
-  { "token": "inc", "start_byte": 23, "end_byte": 26, "html_token": False },
-  { "token": ".", "start_byte": 26, "end_byte": 27, "html_token": False },
-  { "token": "</h1>", "start_byte": 27, "end_byte": 32, "html_token": True },
-  { "token": "<p>", "start_byte": 32, "end_byte": 35, "html_token": True },
-  { "token": "Google", "start_byte": 35, "end_byte": 41, "html_token": False },
-  { "token": "was", "start_byte": 42, "end_byte": 45, "html_token": False },
-  { "token": "founded", "start_byte": 46, "end_byte": 53, "html_token": False },
-  { "Token": "in", "start_byte": 54, "end_byte": 56, "html_token": False },
-  { "token": "1998", "start_byte": 57, "end_byte": 61, "html_token": False },
-  { "token": "by", "start_byte": 62, "end_byte": 64, "html_token": False },
-  ...
+  { "token": "<h1>", "start_byte": 12, "end_byte": 16, "html_token": true },
+  { "token": "Google", "start_byte": 16, "end_byte": 22, "html_token": false },
+  { "token": "inc", "start_byte": 23, "end_byte": 26, "html_token": false },
+  { "token": ".", "start_byte": 26, "end_byte": 27, "html_token": false },
+  { "token": "</h1>", "start_byte": 27, "end_byte": 32, "html_token": true },
+  { "token": "<p>", "start_byte": 32, "end_byte": 35, "html_token": true },
+  { "token": "Google", "start_byte": 35, "end_byte": 41, "html_token": false },
+  { "token": "was", "start_byte": 42, "end_byte": 45, "html_token": false },
+  { "token": "founded", "start_byte": 46, "end_byte": 53, "html_token": false },
+  { "Token": "in", "start_byte": 54, "end_byte": 56, "html_token": false },
+  { "token": "1998", "start_byte": 57, "end_byte": 61, "html_token": false },
+  { "token": "by", "start_byte": 62, "end_byte": 64, "html_token": false },
 ```
 
 Each token is either a word or a HTML tag that defines a heading, paragraph,
@@ -95,9 +94,8 @@ exclusive.
 
 ```json
 "long_answer_candidates": [
-  { "start_byte": 32, "end_byte": 106, "start_token": 5, "end_token": 22, "top_level": True },
-  { "start_byte": 65, "end_byte": 102, "start_token": 13, "end_token": 21, "top_level": False },
-  ...
+  { "start_byte": 32, "end_byte": 106, "start_token": 5, "end_token": 22, "top_level": true },
+  { "start_byte": 65, "end_byte": 102, "start_token": 13, "end_token": 21, "top_level": false },
 ```
 
 In this example, you can see that the second long answer candidate is contained
@@ -125,12 +123,12 @@ the long answer dictionary are set to -1.
 
 ```json
 "annotations": [{
-  "long_answer": { "start_byte": 32, "end_byte": 106, "start_token": 5, "end_token": 22, "candidate_index": 0 },
-  "short_answers": [
-    {"start_byte": 73, "end_byte": 78, "start_token": 15, "end_token": 16},
-    {"start_byte": 87, "end_byte": 92, "start_token": 18, "end_token": 19}
-  ],
-  "yes_no_answer": "NONE"
+  "long_answer": { "start_byte": 32, "end_byte": 106, "start_token": 5, "end_token": 22, "candidate_index": 0 },
+  "short_answers": [
+    {"start_byte": 73, "end_byte": 78, "start_token": 15, "end_token": 16},
+    {"start_byte": 87, "end_byte": 92, "start_token": 18, "end_token": 19}
+  ],
+  "yes_no_answer": "NONE"
 }]
 ```
 
