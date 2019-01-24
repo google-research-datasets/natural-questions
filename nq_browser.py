@@ -45,8 +45,11 @@ import numpy as np
 import tornado.web
 import tornado.wsgi
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
+try:
+  reload(sys)  # Python 2
+  sys.setdefaultencoding('utf-8')
+except NameError:
+  pass         # Python 3
 
 FLAGS = flags.FLAGS
 
