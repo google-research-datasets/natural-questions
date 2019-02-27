@@ -1,3 +1,10 @@
+|WARNING: Once you have created your Docker image and uploaded it to the NQ competition site, you must  grant our service account read access. Otherwise your Docker images will be private and we won't be able to run them. |
+| :--- |
+| 1. Go to the storage tab in the gcloud console. |
+| 2. Locate the artifacts bucket. It should have a name like `artifacts.<project-name >.appspot.com` |
+| 3. Click the dropdown for the bucket and select "Edit Bucket Permissions". |
+| 4. Grant Storage Object Viewer permissions to the following user: `mljam-compute@mljam-205019.iam.gserviceaccount.com` |
+
 # Building a Docker Image for the Natural Questions Competition
 First, make sure that you have set up a profile as instructed on the
 [Natural Questions competition site](http://ai.google.com/research/NaturalQuestions/competition).
