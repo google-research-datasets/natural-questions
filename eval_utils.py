@@ -106,8 +106,8 @@ class Span(object):
 
   def __str__(self):
     byte_str = 'byte: [' + str(self.start_byte) + ',' + str(self.end_byte) + ')'
-    tok_str = ('tok: [' + str(self.start_token_idx) + ',' + str(
-        self.end_token_idx) + ')')
+    tok_str = ('tok: [' + str(self.start_token_idx) + ',' +
+               str(self.end_token_idx) + ')')
 
     return byte_str + ' ' + tok_str
 
@@ -257,7 +257,7 @@ def read_prediction_json(predictions_path):
 def read_annotation_from_one_split(gzipped_input_file):
   """Read annotation from one split of file."""
   if isinstance(gzipped_input_file, str):
-    gzipped_input_file = open(gzipped_input_file)
+    gzipped_input_file = open(gzipped_input_file, 'rb')
   logging.info('parsing %s ..... ', gzipped_input_file.name)
   annotation_dict = {}
   with GzipFile(fileobj=gzipped_input_file) as input_file:
@@ -276,9 +276,10 @@ def read_annotation_from_one_split(gzipped_input_file):
 
         short_span_list = []
         for short_span_rec in annotation['short_answers']:
-          short_span = Span(
-              short_span_rec['start_byte'], short_span_rec['end_byte'],
-              short_span_rec['start_token'], short_span_rec['end_token'])
+          short_span = Span(short_span_rec['start_byte'],
+                            short_span_rec['end_byte'],
+                            short_span_rec['start_token'],
+                            short_span_rec['end_token'])
           short_span_list.append(short_span)
 
         gold_label = NQLabel(
