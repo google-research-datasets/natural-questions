@@ -207,21 +207,18 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
     <td>description</td>
     <td><code itemprop="description">Natural Questions (NQ) contains real user questions issued to Google search, and
 answers found from Wikipedia by annotators.\n
-NQ is designed for the training and evaluation of automatic question answering
-systems.\n
+NQ is designed for the training and evaluation of automatic question answering systems.\n
 \n
-NQ contains 307,372 training examples, 7,830 examples for development, and we
-withold a further 7,842 examples for testing.\n
+NQ contains 307,372 training examples, 7,830 examples for development, and we withold a further 7,842 examples for testing.\n
 \n
-Each example contains a single question, a tokenized representation of the question,
-a timestamped Wikipedia URL, and the HTML representation of that Wikipedia page.\n
+Each example contains a single question, a tokenized representation of the question, a timestamped Wikipedia URL, and the HTML representation of that Wikipedia page.\n
 \n
 ```json\n
 "question_text": "who founded google",\n
 "question_tokens": ["who", "founded", "google"],\n
 "document_url": "http://www.wikipedia.org/Google",\n
 "document_html": "<html><body><h1>Google</h1><p>Google was founded in 1998 by ..."\n
-```</code></td>
+```\n</code></td>
   </tr>
   <tr>
     <td>provider</td>
