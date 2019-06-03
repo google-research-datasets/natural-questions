@@ -178,7 +178,7 @@ create an issue in this repository. This is the fastest way to reach us.
 
 If you would like to share feedback or report concerns, please email us at <natural-questions@google.com>.
 
-## Dataset Metadata
+# Dataset Metadata
 The following table is necessary for this dataset to be indexed by search
 engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
 <div itemscope itemtype="http://schema.org/Dataset">
