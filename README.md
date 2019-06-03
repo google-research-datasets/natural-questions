@@ -192,7 +192,7 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
     <td><code itemprop="name">Natural Questions</code></td>
   </tr>
   <tr>
-    <td>name</td>
+    <td>alternateName</td>
     <td><code itemprop="alternateName">natural-questions</code></td>
   </tr>
   <tr>
@@ -201,7 +201,7 @@ engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
   </tr>
   <tr>
     <td>sameAs</td>
-    <td><code itemprop="sameAs">https://github.com/google-research-datasets/natural-questions</code></td>
+    <td><code itemprop="sameAs">https://ai.google.com/research/NaturalQuestions</code></td>
   </tr>
   <tr>
     <td>description</td>
