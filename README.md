@@ -177,3 +177,95 @@ If you have a technical question regarding the dataset, code or publication, ple
 create an issue in this repository. This is the fastest way to reach us.
 
 If you would like to share feedback or report concerns, please email us at <natural-questions@google.com>.
+
+# Dataset Metadata
+The following table is necessary for this dataset to be indexed by search
+engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
+<div itemscope itemtype="http://schema.org/Dataset">
+<table>
+  <tr>
+    <th>property</th>
+    <th>value</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><code itemprop="name">Natural Questions</code></td>
+  </tr>
+  <tr>
+    <td>alternateName</td>
+    <td><code itemprop="alternateName">natural-questions</code></td>
+  </tr>
+  <tr>
+    <td>url</td>
+    <td><code itemprop="url">https://github.com/google-research-datasets/natural-questions</code></td>
+  </tr>
+  <tr>
+    <td>sameAs</td>
+    <td><code itemprop="sameAs">https://ai.google.com/research/NaturalQuestions</code></td>
+  </tr>
+  <tr>
+    <td>description</td>
+    <td><code itemprop="description">Natural Questions (NQ) contains real user questions issued to Google search, and
+answers found from Wikipedia by annotators.\n
+NQ is designed for the training and evaluation of automatic question answering systems.\n
+\n
+NQ contains 307,372 training examples, 7,830 examples for development, and we withold a further 7,842 examples for testing.\n
+\n
+Each example contains a single question, a tokenized representation of the question, a timestamped Wikipedia URL, and the HTML representation of that Wikipedia page.\n
+\n
+```json\n
+"question_text": "who founded google",\n
+"question_tokens": ["who", "founded", "google"],\n
+"document_url": "http://www.wikipedia.org/Google",\n
+"document_html": "<html><body>Google<p>Google was founded in 1998 by ..."\n
+```\n</code></td>
+  </tr>
+  <tr>
+    <td>provider</td>
+    <td>
+      <div itemscope itemtype="http://schema.org/Organization" itemprop="provider">
+        <table>
+          <tr>
+            <th>property</th>
+            <th>value</th>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td><code itemprop="name">Google</code></td>
+          </tr>
+          <tr>
+            <td>sameAs</td>
+            <td><code itemprop="sameAs">https://en.wikipedia.org/wiki/Google</code></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>license</td>
+    <td>
+      <div itemscope itemtype="http://schema.org/CreativeWork" itemprop="license">
+        <table>
+          <tr>
+            <th>property</th>
+            <th>value</th>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td><code itemprop="name">CC BY-SA 3.0</code></td>
+          </tr>
+          <tr>
+            <td>url</td>
+            <td><code itemprop="url">https://creativecommons.org/licenses/by-sa/3.0/</code></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>citation</td>
+    <td><code itemprop="citation">Kwiatkowski, Tom, Jennimaria Palomaki, Olivia Rhinehart, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein et al. "Natural questions: a benchmark for question answering research." (2019). https://ai.google/research/pubs/pub47761</code></td>
+  </tr>
+</table>
+</div>
+
