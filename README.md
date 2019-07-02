@@ -217,7 +217,7 @@ Each example contains a single question, a tokenized representation of the quest
 "question_text": "who founded google",\n
 "question_tokens": ["who", "founded", "google"],\n
 "document_url": "http://www.wikipedia.org/Google",\n
-"document_html": "<html><body>Google<p>Google was founded in 1998 by ..."\n
+"document_html": "Google was founded in 1998 by ..."\n
 ```\n</code></td>
   </tr>
   <tr>
