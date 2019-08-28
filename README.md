@@ -29,17 +29,30 @@ Instructions on building the Docker image are given [here](competition.md).
 
 
 ## Data Format
-Each example in NQ contains the rendered HTML of an entire Wikipedia page, as
-well as a tokenized representation of the text on the page. We supply the
-so that participants are not constrained by our choices in text processing.
-However, we also expect that most users will choose to use the simpler tokenized
-form of the data. The evaluation script recognizes predictions as either byte
-offsets into the HTML or token offsets into the token sequence.
+Each example in the original NQ format contains the rendered HTML of an entire
+Wikipedia page, as well as a tokenized representation of the text on the page.
 
-To help you explore the data, this repository contains a simple
+This section will go on to define the full NQ data format, but we recognize
+that most users will only want a version of the data in which the text has
+already been extracted. We have supplied a
+[simplified version of the training set](https://storage.cloud.google.com/natural_questions/v1.0-simplified/simplified-nq-train.jsonl.gz)
+and we have also supplied a `simplify_nq_example` function
+in [data_utils.py](data_utils.py) which maps from the original format to the
+simplified format. Only the original format is provided by our
+[competition site](https://ai.google.com/research/NaturalQuestions/competition).
+If you use the simplified data, you should call `simplify_nq_example` on each
+example seen during evaluation and you should provide predictions using the
+`start_token` and `end_token` offsets that correspond to the whitespace
+separated tokens in the document text.
+
+As well as recognizing predictions according to token offsets, the evaluation
+script also recognizes predictions as byte offsets into the original HTML. This
+allows users to define their own text extraction and tokenization schemes.
+
+To help you explore the data, this repository also contains a simple
 [data browser](nq_browser.py) that you can run on your own machine, and modify
-as you see fit. We also have provided preprocessing utilities and tensorflow
-dataset code in
+as you see fit. We also have provided extra preprocessing utilities and
+tensorflow dataset code in
 [the repository containing the baseline systems presented in our paper](https://github.com/google-research/language/tree/master/language/question_answering).
 The rest of this section describes the data format thouroughly in reference to
 a [toy example](toy_example.md).
@@ -177,95 +190,3 @@ If you have a technical question regarding the dataset, code or publication, ple
 create an issue in this repository. This is the fastest way to reach us.
 
 If you would like to share feedback or report concerns, please email us at <natural-questions@google.com>.
-
-# Dataset Metadata
-The following table is necessary for this dataset to be indexed by search
-engines such as <a href="https://g.co/datasetsearch">Google Dataset Search</a>.
-<div itemscope itemtype="http://schema.org/Dataset">
-<table>
-  <tr>
-    <th>property</th>
-    <th>value</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td><code itemprop="name">Natural Questions</code></td>
-  </tr>
-  <tr>
-    <td>alternateName</td>
-    <td><code itemprop="alternateName">natural-questions</code></td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td><code itemprop="url">https://github.com/google-research-datasets/natural-questions</code></td>
-  </tr>
-  <tr>
-    <td>sameAs</td>
-    <td><code itemprop="sameAs">https://ai.google.com/research/NaturalQuestions</code></td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td><code itemprop="description">Natural Questions (NQ) contains real user questions issued to Google search, and
-answers found from Wikipedia by annotators.\n
-NQ is designed for the training and evaluation of automatic question answering systems.\n
-\n
-NQ contains 307,372 training examples, 7,830 examples for development, and we withold a further 7,842 examples for testing.\n
-\n
-Each example contains a single question, a tokenized representation of the question, a timestamped Wikipedia URL, and the HTML representation of that Wikipedia page.\n
-\n
-```json\n
-"question_text": "who founded google",\n
-"question_tokens": ["who", "founded", "google"],\n
-"document_url": "http://www.wikipedia.org/Google",\n
-"document_html": "<html><body>Google<p>Google was founded in 1998 by ..."\n
-```\n</code></td>
-  </tr>
-  <tr>
-    <td>provider</td>
-    <td>
-      <div itemscope itemtype="http://schema.org/Organization" itemprop="provider">
-        <table>
-          <tr>
-            <th>property</th>
-            <th>value</th>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td><code itemprop="name">Google</code></td>
-          </tr>
-          <tr>
-            <td>sameAs</td>
-            <td><code itemprop="sameAs">https://en.wikipedia.org/wiki/Google</code></td>
-          </tr>
-        </table>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td>license</td>
-    <td>
-      <div itemscope itemtype="http://schema.org/CreativeWork" itemprop="license">
-        <table>
-          <tr>
-            <th>property</th>
-            <th>value</th>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td><code itemprop="name">CC BY-SA 3.0</code></td>
-          </tr>
-          <tr>
-            <td>url</td>
-            <td><code itemprop="url">https://creativecommons.org/licenses/by-sa/3.0/</code></td>
-          </tr>
-        </table>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td>citation</td>
-    <td><code itemprop="citation">Kwiatkowski, Tom, Jennimaria Palomaki, Olivia Rhinehart, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein et al. "Natural questions: a benchmark for question answering research." (2019). https://ai.google/research/pubs/pub47761</code></td>
-  </tr>
-</table>
-</div>
-
