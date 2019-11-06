@@ -102,6 +102,7 @@ from absl import app
 from absl import flags
 from absl import logging
 import eval_utils as util
+import six
 
 flags.DEFINE_string(
     'gold_path', None, 'Path to the gzip JSON data. For '
@@ -259,7 +260,7 @@ def compute_f1(answer_stats, prefix=''):
     Dictionary mapping string names to scores.
   """
 
-  has_gold, has_pred, is_correct, _ = zip(*answer_stats)
+  has_gold, has_pred, is_correct, _ = list(zip(*answer_stats))
   precision = safe_divide(sum(is_correct), sum(has_pred))
   recall = safe_divide(sum(is_correct), sum(has_gold))
   f1 = safe_divide(2 * precision * recall, precision + recall)
@@ -335,7 +336,7 @@ def compute_pr_curves(answer_stats, targets=None):
   best_recall = 0.0
   best_threshold = 0.0
 
-  for threshold, (precision, recall) in scores_to_stats.iteritems():
+  for threshold, (precision, recall) in six.iteritems(scores_to_stats):
     # Match the thresholds to the find the closest precision above some target.
     for t, target in enumerate(targets):
       if precision >= target and recall > max_recall[t]:
@@ -352,7 +353,7 @@ def compute_pr_curves(answer_stats, targets=None):
       best_threshold = threshold
 
   return ((best_f1, best_precision, best_recall, best_threshold),
-          zip(targets, max_recall, max_precision, max_scores))
+          list(zip(targets, max_recall, max_precision, max_scores)))
 
 
 def print_r_at_p_table(answer_stats):
@@ -408,7 +409,7 @@ def get_metrics_with_answer_stats(long_answer_stats, short_answer_stats):
       metrics['precision-at-precision>={:.2}'.format(target)] = precision
 
     # Add prefix before returning.
-    return dict([(prefix + k, v) for k, v in metrics.iteritems()])
+    return dict([(prefix + k, v) for k, v in six.iteritems(metrics)])
 
   metrics = _get_metric_dict(long_answer_stats, 'long-')
   metrics.update(_get_metric_dict(short_answer_stats, 'short-'))
