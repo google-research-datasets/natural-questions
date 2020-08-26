@@ -20,7 +20,7 @@ from __future__ import print_function
 
 import eval_utils as util
 import nq_eval as ev
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 class EvalUtilsTest(tf.test.TestCase):
