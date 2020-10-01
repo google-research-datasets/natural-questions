@@ -5,10 +5,10 @@ answers found from Wikipedia by annotators.
 NQ is designed for the training and evaluation of automatic question answering
 systems.
 
-Please see
+Please see at
 [http://ai.google.com/research/NaturalQuestions](http://ai.google.com/research/NaturalQuestions)
 to get the data and view the leaderboard.
-For more details on the design and content of the dataset, please see
+For more details on the design and content of the dataset, please refer to
 the paper
 [Natural Questions: a Benchmark for Question Answering Research](https://ai.google/research/pubs/pub47761).
 To help you get started on this task we have provided some
