@@ -9,7 +9,7 @@ Please see at
 [http://ai.google.com/research/NaturalQuestions](http://ai.google.com/research/NaturalQuestions)
 to get the data and view the leaderboard.
 For more details on the design and content of the dataset, please refer to
-the paper
+the paper,
 [Natural Questions: a Benchmark for Question Answering Research](https://ai.google/research/pubs/pub47761).
 To help you get started on this task we have provided some
 [baseline systems](https://github.com/google-research/language/tree/master/language/question_answering)
