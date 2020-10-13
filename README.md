@@ -54,7 +54,7 @@ To help you explore the data, this repository also contains a simple
 as you see fit. We also have provided extra preprocessing utilities and
 tensorflow dataset code in
 [the repository containing the baseline systems presented in our paper](https://github.com/google-research/language/tree/master/language/question_answering).
-The rest of this section describes the data format thouroughly in reference to
+The rest of this section describes the data format thoroughly in reference to
 a [toy example](toy_example.md).
 
 Each example contains a single question, a tokenized representation of the question,
