@@ -33,7 +33,6 @@ import base64
 import gzip
 import json
 import os
-import sys
 
 import wsgiref.simple_server
 
@@ -45,8 +44,6 @@ import numpy as np
 import tornado.web
 import tornado.wsgi
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 FLAGS = flags.FLAGS
 
@@ -87,11 +84,9 @@ class Example(object):
 
     # Whole example info.
     self.url = json_example['document_url']
-    self.title = (
-        json_example['document_title']
-        if json_example.has_key('document_title') else 'Wikipedia')
+    self.title = json_example.get('document_title', 'Wikipedia')
     self.example_id = base64.urlsafe_b64encode(
-        str(self.json_example['example_id']))
+        str(self.json_example['example_id']).encode('utf-8'))
     self.document_html = self.json_example['document_html'].encode('utf-8')
     self.document_tokens = self.json_example['document_tokens']
     self.question_text = json_example['question_text']
@@ -210,7 +205,7 @@ class Example(object):
                               long_answer['end_byte'])
 
   def render_span(self, start, end):
-    return self.document_html[start:end]
+    return self.document_html[start:end].decode()
 
   def get_candidates(self, json_candidates):
     """Returns a list of `LongAnswerCandidate` objects for top level candidates.

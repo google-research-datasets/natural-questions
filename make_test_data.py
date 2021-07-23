@@ -36,6 +36,7 @@ from absl import app
 from absl import flags
 
 import eval_utils as util
+import six
 
 flags.DEFINE_string('gold_path', None, 'Path to gold data.')
 flags.DEFINE_string('output_path', None, 'Path to write JSON.')
@@ -107,7 +108,7 @@ def main(_):
     return pred
 
   predictions = []
-  for _, labels in nq_gold_dict.iteritems():
+  for _, labels in six.iteritems(nq_gold_dict):
     predictions.append(label_to_pred(labels))
 
   with open(FLAGS.output_path, 'w') as f:
