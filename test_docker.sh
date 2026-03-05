@@ -11,7 +11,7 @@ mkdir -p "${DATA_DIR}"
 
 # Download small data sample to test NQ submission.
 if [ ! -f "${DATA_DIR}" ]; then
-  gsutil cp -R "gs://bert-nq/tiny-dev/*" "${DATA_DIR}"
+  gcloud storage cp --recursive "gs://bert-nq/tiny-dev/*" "${DATA_DIR}"
 fi
 
 # Remove --runtime=nvidia if you have not installed docker-nvidia locally.
